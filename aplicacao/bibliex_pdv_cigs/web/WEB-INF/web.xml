@@ -46,6 +46,16 @@
         <url-pattern>/dwr/*</url-pattern>
     </servlet-mapping>
     
+    <!-- Filtro -->
+    <filter>
+        <filter-name>FiltroPaginas</filter-name>
+        <filter-class>controller.FiltroPaginas</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FiltroPaginas</filter-name>
+        <url-pattern>/restrito/*</url-pattern>
+    </filter-mapping>
+    
     <session-config>
         <session-timeout>
             60

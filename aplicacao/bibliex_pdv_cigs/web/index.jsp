@@ -70,19 +70,44 @@
         <link href="assets/css/index.css" rel="stylesheet">
     </head>
     <body class="text-center">
-       
+
         <main class="form-signin w-100 m-auto">
-            <form>
+            <div class="col-md-12">
+                <%
+                    if (request.getParameter("e") != null) {
+                        int grupoacesso = Integer.parseInt(request.getParameter("e"));
+                        if (grupoacesso == 1) {
+                            out.println("<div class=\"alert alert-danger mr-auto ml-auto shadow-sm text-center\" role=\"alert\">");
+                            out.println("       Usuário Inválido!<br>Tente Novamente!");
+                            out.println("</div>");
+                        } else if (grupoacesso == 2) {
+                            out.println("<div class=\"alert alert-danger mr-auto ml-auto shadow-sm text-center\" role=\"alert\">");
+                            out.println("       Senha Inválida!<br>Tente Novamente!");
+                            out.println("</div>");
+                        } else if (grupoacesso == 3) {
+                            out.println("<div class=\"alert alert-danger mr-auto ml-auto shadow-sm text-center\" role=\"alert\">");
+                            out.println("       Usuário e Senha Inválidos!<br>Tente Novamente!");
+                            out.println("</div>");
+                        } else if (grupoacesso == 4) {
+                            out.println("<div class=\"alert alert-danger mr-auto ml-auto shadow-sm text-center\" role=\"alert\">");
+                            out.println("       Sessão Encerrada!<br>Tente Novamente!");
+                            out.println("</div>");
+                        }
+                    }
+                %>
+            </div>
+
+            <form name="formLogin" action="Autenticador" method="POST">
                 <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-                <h1 class="h3 mb-3 fw-normal">Seja Bem-vindo!</h1>
+                <h1 class="h3 mb-3 fw-normal">Seja bem-vindo!</h1>
 
                 <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Usuário</label>
+                    <input type="text" class="form-control" id="txtUsuario" name="txtUsuario" placeholder="name@example.com" required autofocus>
+                    <label for="txtUsuario">Usuário</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Senha</label>
+                    <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Password" required>
+                    <label for="txtSenha">Senha</label>
                 </div>
 
                 <div class="checkbox mb-3">

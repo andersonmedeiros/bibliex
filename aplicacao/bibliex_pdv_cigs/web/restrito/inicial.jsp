@@ -13,12 +13,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="Anderson de Paula Andrade Medeiros">
-        <title>PDV - CADASTRO LIVRO</title>
-        
-        
-        
+        <title>PDV - CADASTRO USUÁRIO</title>
+
         <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/navbars-offcanvas/">
-        <link href="../../assets/node_modules/bootstrap/compiler/bootstrap.css" rel="stylesheet">
+        <link href="../assets/node_modules/bootstrap/compiler/bootstrap.css" rel="stylesheet">
 
         <style>
             .bd-placeholder-img {
@@ -73,7 +71,11 @@
             }
         </style>
         <!-- Custom styles for this template -->
-        <link href="../../assets/css/padrao.css" rel="stylesheet">
+        <link href="../assets/css/padrao.css" rel="stylesheet">
+
+        <script type='text/javascript' src='../dwr/engine.js'></script>
+        <script type='text/javascript' src='../dwr/interface/FacadeAjax.js'></script>
+        <script type='text/javascript' src='../dwr/util.js'></script> 
     </head>
     <body>
         <%
@@ -103,14 +105,14 @@
                                     if (usuarioLogado.getIdGrupoAcesso() == 1) {
                                         out.println(
                                                 "<li class=\"nav-item\">"
-                                                + "<a class=\"nav-link\" aria-current=\"page\" href=\"../inicial.jsp\">Home</a>"
+                                                + "<a class=\"nav-link active\" aria-current=\"page\" href=\"#\">Home</a>"
                                                 + "</li>"
                                                 + "<li class=\"nav-item dropdown\">"
                                                 + "<a class=\"nav-link dropdown-toggle\" href=\"#\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">"
                                                 + "Usuários"
                                                 + "</a>"
                                                 + "<ul class=\"dropdown-menu\">"
-                                                + "<li><a class=\"dropdown-item\" href=\"../usuario/cadastro.jsp\">Novo</a></li>"
+                                                + "<li><a class=\"dropdown-item\" href=\"usuario/cadastro.jsp\">Novo</a></li>"
                                                 + "<li>"
                                                 + "<hr class=\"dropdown-divider\">"
                                                 + "</li>"
@@ -119,11 +121,11 @@
                                                 + "</ul>"
                                                 + "</li>"
                                                 + "<li class=\"nav-item dropdown\">"
-                                                + "<a class=\"nav-link dropdown-toggle active\" href=\"#\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">"
+                                                + "<a class=\"nav-link dropdown-toggle\" href=\"#\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">"
                                                 + "Livros"
                                                 + "</a>"
                                                 + "<ul class=\"dropdown-menu\">"
-                                                + "<li><a class=\"dropdown-item active\" href=\"cadastro.jsp\">Novo</a></li>"
+                                                + "<li><a class=\"dropdown-item\" href=\"livros/cadastro.jsp\">Novo</a></li>"
                                                 + "<li>"
                                                 + "<hr class=\"dropdown-divider\">"
                                                 + "</li>"
@@ -134,14 +136,14 @@
                                     } else if (usuarioLogado.getIdGrupoAcesso() == 2) {
                                         out.println(
                                                 "<li class=\"nav-item\">"
-                                                + "<a class=\"nav-link\" aria-current=\"page\" href=\"#\">Home</a>"
+                                                + "<a class=\"nav-link active\" aria-current=\"page\" href=\"#\">Home</a>"
                                                 + "</li>"
                                                 + "<li class=\"nav-item dropdown\">"
                                                 + "<a class=\"nav-link dropdown-toggle\" href=\"#\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">"
                                                 + "Usuários"
                                                 + "</a>"
                                                 + "<ul class=\"dropdown-menu\">"
-                                                + "<li><a class=\"dropdown-item\" href=\"../usuario/cadastro.jsp\">Novo</a></li>"
+                                                + "<li><a class=\"dropdown-item\" href=\"usuario/cadastro.jsp\">Novo</a></li>"
                                                 + "<li>"
                                                 + "<hr class=\"dropdown-divider\">"
                                                 + "</li>"
@@ -150,11 +152,11 @@
                                                 + "</ul>"
                                                 + "</li>"
                                                 + "<li class=\"nav-item dropdown\">"
-                                                + "<a class=\"nav-link dropdown-toggle active\" href=\"#\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">"
+                                                + "<a class=\"nav-link dropdown-toggle\" href=\"#\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">"
                                                 + "Livros"
                                                 + "</a>"
                                                 + "<ul class=\"dropdown-menu\">"
-                                                + "<li><a class=\"dropdown-item active\" href=\"cadastro.jsp\">Novo</a></li>"
+                                                + "<li><a class=\"dropdown-item\" href=\"livros/cadastro.jsp\">Novo</a></li>"
                                                 + "<li>"
                                                 + "<hr class=\"dropdown-divider\">"
                                                 + "</li>"
@@ -173,99 +175,12 @@
                     </div>
                 </div>
             </nav>
-                               
-            <div class="container my-5">
-                <div class="bg-light p-5 rounded">
-                    <div class="col-sm-8 py-5 mx-auto">
-                        <h1 class="display-5 fw-normal mb-4">Cadastro de Livro</h1>
-                        <form class="row g-2">
-                            <p class="fs-5">Dados do Livro</p>
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="1234567789">
-                                <label for="floatingInput">ISBN</label>
-                            </div>
 
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="João">
-                                <label for="floatingInput">Título</label>
-                            </div>
-                            
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="Autor">
-                                <label for="floatingInput">Autor</label>
-                            </div>
-                            
-                            <div class="form-floating col-md-4">
-                                <input type="number" class="ano form-control" id="floatingInput" placeholder="Ano" min="0">
-                                <label for="floatingInput">Editorial (Ano)</label>
-                            </div>
+            <script src="../assets/node_modules/jquery/dist/jquery.js"></script>
+            <script src="../assets/node_modules/popper.js/dist/popper.js"></script>
+            <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 
-                            <div class="form-floating col-md-4">
-                                <input type="number" class="form-control" id="floatingInput" placeholder="Paginas" min="0">
-                                <label for="floatingInput">Quantidade de Páginas</label>
-                            </div>
-                            
-                            <div class="form-floating col-md-4">
-                                <input type="text" class="dinheiro form-control" id="floatingInput" placeholder="Silva">
-                                <label for="floatingInput">Valor Unitário (R$)</label>
-                            </div>                                                   
-                            
-                            <div class="form-floating col-md-6">
-                                <select class="form-select" id="floatingSelect">
-                                    <option selected>Selecione a editora do livro...</option>
-                                </select>
-                                <label for="floatingSelect">Editora</label>
-                            </div>
-                            
-                            <div class="form-floating col-md-6">
-                                <select class="form-select" id="floatingSelect">
-                                    <option selected>Selecione a coleção do livro...</option>
-                                </select>
-                                <label for="floatingSelectPGrad">Coleção</label>
-                            </div>
-                            
-                            <p class="fs-5">Dimensões do Livro</p>
-                            <div class="form-floating col-md-3">
-                                <input type="number" class="form-control" id="floatingInput" placeholder="Largura" min="0" step="0.01">
-                                <label for="floatingInput">Largura (cm)</label>
-                            </div>
-                            <div class="form-floating col-md-3">
-                                <input type="number" class="form-control" id="floatingInput" placeholder="Espessura" min="0" step="0.01">
-                                <label for="floatingInput">Espessura (cm)</label>
-                            </div>
-                            <div class="form-floating col-md-3">
-                                <input type="number" class="form-control" id="floatingInput" placeholder="Altura" min="0" step="0.01">
-                                <label for="floatingInput">Altura (cm)</label>
-                            </div>
-                            <div class="form-floating col-md-3">
-                                <input type="number" class="form-control" id="floatingInput" placeholder="Peso" min="0" step="0.01">
-                                <label for="floatingInput">Peso (kg)</label>
-                            </div>
-                            
-                            <p class="fs-5">Estoque do Livro</p>
-                            <div class="form-floating">
-                                <input type="number" class="form-control" id="floatingInput" placeholder="Quantidade" min="0">
-                                <label for="floatingInput">Quantidade: </label>
-                            </div>
-                            
-
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                <button type="button" class="btn btn-danger">Cancelar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </main>
-        
-        <script src="../../assets/node_modules/jquery/dist/jquery.js"></script>
-        
-        <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
-        <script src="../../assets/js/mascaras.js"></script>
-        
-        <script src="../../assets/node_modules/popper.js/dist/popper.js"></script>
-        <script src="../../assets/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="../../assets/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+            <script src="../assets/js/dwr/usuario/camposDinamicos.js"></script>
     </body>
 </html>

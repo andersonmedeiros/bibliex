@@ -71,6 +71,10 @@
         </style>
         <!-- Custom styles for this template -->
         <link href="../../assets/css/padrao.css" rel="stylesheet">
+        
+        <script type='text/javascript' src='../../dwr/engine.js'></script>
+        <script type='text/javascript' src='../../dwr/interface/FacadeAjax.js'></script>
+        <script type='text/javascript' src='../../dwr/util.js'></script> 
     </head>
     <body>
         <main>
@@ -155,10 +159,10 @@
                             </div>
 
                             <div class="form-floating mb-3">
-                                <select class="form-select" id="floatingSelectPGrad">
+                                <select class="form-select" id="txtPostoGraduacao" name="txtPostoGraduacao">
                                     <option selected>Selecione um Posto ou Graduação...</option>
                                 </select>
-                                <label for="floatingSelectPGrad">Posto/Graduação</label>
+                                <label for="txtPostoGraduacao">Posto/Graduação</label>
                             </div>
 
                             <div class="col-12">
@@ -175,5 +179,7 @@
         <script src="../../assets/node_modules/popper.js/dist/popper.js"></script>
         <script src="../../assets/node_modules/bootstrap/dist/js/bootstrap.js"></script>
         <script src="../../assets/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        
+        <script src="../../assets/js/dwr/usuario/camposDinamicos.js"></script>
     </body>
 </html>

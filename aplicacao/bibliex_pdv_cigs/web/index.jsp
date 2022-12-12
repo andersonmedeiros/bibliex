@@ -3,7 +3,6 @@
     Created on : 10 de dez de 2022, 19:32:39
     Author     : STI
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -71,6 +70,7 @@
         <link href="assets/css/index.css" rel="stylesheet">
     </head>
     <body class="text-center">
+       
         <main class="form-signin w-100 m-auto">
             <form>
                 <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">

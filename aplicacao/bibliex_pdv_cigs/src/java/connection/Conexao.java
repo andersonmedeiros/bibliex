@@ -1,0 +1,85 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package connection;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+/**
+ *
+ * @author STI
+ */
+public class Conexao {
+    //LOCALHOST
+    private static final String USER="root";
+    private static final String SENHA="Am1095253071.";
+    private static final String DATABASE = "bibliex_pdv_cigs";
+    private static final String DRIVER_CONEXAO = "com.mysql.cj.jdbc.Driver";
+    private static final String STR_CONEXAO = "jdbc:mysql://localhost:3306/";
+    
+    public static Connection getConnection() {
+        Connection conn = null;
+        
+        try {
+            Class.forName(DRIVER_CONEXAO);
+            conn = DriverManager.getConnection(STR_CONEXAO + DATABASE, USER, SENHA);
+            System.out.println("Banco Aberto!");
+
+            return conn;
+            
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            throw new RuntimeException(
+                    "Driver MySql no foi encontrado " + e.getMessage());
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao conectar "
+                    + "com a base de dados" + e.getMessage());
+        }
+        
+    }
+
+    public static void fechaConexao(Connection conn) {
+
+        try {
+            if (conn != null) {
+                conn.close();
+                //System.out.println("Fechada a conexÃ£o com o banco de dados");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Não foi possível fechar a conexão com o banco de dados " + e.getMessage());
+        }
+    }
+
+    public static void fechaConexao(Connection conn, PreparedStatement stmt) {
+        try {
+            if (conn != null) {
+                fechaConexao(conn);
+            }
+            if (stmt != null) {
+                stmt.close();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Não foi possível fechar o statement " + e.getMessage());
+        }
+    }
+
+    public static void fechaConexao(Connection conn, PreparedStatement stmt, ResultSet rs) {
+        try {
+            if (conn != null || stmt != null) {
+                fechaConexao(conn, stmt);
+            }
+            if (rs != null) {
+                rs.close();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Não foi possível fechar o ResultSet " + e.getMessage());
+        }
+    }
+}

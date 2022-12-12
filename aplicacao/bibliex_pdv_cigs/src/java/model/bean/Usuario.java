@@ -11,8 +11,10 @@ package model.bean;
  */
 public class Usuario {
     private String idtmilitar, nome, sobrenome, nomeguerra, senha;
+    private int situacao;
     
     private final PostoGraduacao pg = new PostoGraduacao();
+    private final GrupoAcesso grpacesso = new GrupoAcesso();
 
     public String getIdtmilitar() {
         return idtmilitar;
@@ -53,7 +55,16 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
+    public int getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(int situacao) {
+        this.situacao = situacao;
+    }
+        
+    //Posto Graduação
     public int getIdPGrad() {
         return pg.getId();
     }
@@ -76,5 +87,22 @@ public class Usuario {
 
     public void setAbreviaturaPGrad(String abreviatura) {
         pg.setAbreviatura(abreviatura);
+    }
+    
+    //Grupo Acesso
+    public int getIdGrupoAcesso() {
+        return grpacesso.getId();
+    }
+
+    public void setIdGrupoAcesso(int id) {
+        grpacesso.setId(id);
+    }
+
+    public String getDescricaoGrupoAcesso() {
+        return grpacesso.getDescricao();
+    }
+
+    public void setDescricaoGrupoAcesso(String descricao) {
+        grpacesso.setDescricao(descricao);
     }
 }

@@ -10,6 +10,37 @@
         </init-param>
     </servlet>
     
+    <!-- USUARIO -->
+    <servlet>
+        <servlet-name>CadastrarUsuario</servlet-name>
+        <servlet-class>controller.usuario.CadastrarUsuario</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CadastrarUsuario</servlet-name>
+        <url-pattern>/restrito/usuario/controller.usuario/CadastrarUsuario</url-pattern>
+    </servlet-mapping>
+    
+    <!-- AUTENTICADOR -->
+    <servlet>
+        <servlet-name>Autenticador</servlet-name>
+        <servlet-class>controller.Autenticador</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Autenticador</servlet-name>
+        <url-pattern>/Autenticador</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Sair</servlet-name>
+        <servlet-class>controller.Sair</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Sair</servlet-name>
+        <url-pattern>/restrito/Sair</url-pattern>
+        <url-pattern>/restrito/usuario/Sair</url-pattern>
+        <url-pattern>/restrito/livros/Sair</url-pattern>
+    </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>dwr-invoker</servlet-name>
         <url-pattern>/dwr/*</url-pattern>
